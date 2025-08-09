@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/rendering.dart';
 import 'package:my_stt/widget/lang_dropdown.dart';
 
 import 'package:speech_to_text/speech_recognition_result.dart';
@@ -74,7 +75,7 @@ class _HomePageState extends State<HomePage> {
             onTap: (String value) async {
               localeId = langMap[value]!;
               await _stopListening();
-              _startListening();
+              // _startListening();
             },
           )
         ],
@@ -96,7 +97,7 @@ class _HomePageState extends State<HomePage> {
             Expanded(
               child: Container(
                 padding: EdgeInsets.all(24),
-                child: Text(
+                child: SelectableText(
                   wordsSpoken,
                   style: TextStyle(
                     fontSize: 24,
